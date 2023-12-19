@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <section>
+            <li><a href="" class="navbar">Welcome_Logo</a></li>
+            <ul>
+                <li><a href="/app/v1/blogs/author" class="navbar">My Blogs</a></li>
+                <li><a href="/app/v1/author/logout" class="navbar">Logout</a></li>
+            </ul>
+        </section>
+    </nav>
+    <main>
+        <div class="form_container">
+            <h2>Author dash Board</h2>
+            <form action="/app/v1/blogs" method="post" class="form signup" enctype="multipart/form-data">
+                <div class="input_row">
+                    <label for="title" class="input_label">Title</label>
+                    <input type="text" class="input_control" id="title" name="title">
+                </div> 
+
+                <div class="input_row">
+                    <label for="snippet" class="input_label">Snippet</label>
+                    <input type="text" class="input_control" id="snippet" name="snippet">
+                </div>
+
+                <div class="input_row">
+                    <label for="description" class="input_label">Description</label>
+                    <textarea name="description" id="description"></textarea>
+                </div>
+
+                <div class="input_row">
+                    <label for="image" class="input_label">Image</label>
+                    <input type="file" class="input_control" id="image" name="image">
+                </div>
+
+                <div class="btn_container">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+</body>
+</html>

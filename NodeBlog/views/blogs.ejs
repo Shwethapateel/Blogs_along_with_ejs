@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <section>
+            <li><a href="/app/v1/blogs/dashboard" class="navbar">Welcome_Logo_DashBoard</a></li>
+            <ul>
+                <li><a href="/app/v1/users/logout" class="navbar">Logout</a></li>
+            </ul>
+        </section>
+    </nav>
+    <main>
+        <div class="blogs">
+            <% newBlogs.forEach(blog=>{%>
+                <a href="/app/v1/blogs/<%= blog._id%>">
+                    <div class="blog">
+                    <h2 class="blog-title"><%= blog.title%></h2>
+                    <p><%= blog.snippet%></p>
+                    <p>By-<%= blog.author.name%></p>
+                </div>
+                </a>
+            <%})%>
+        </div>
+    </main>    
+</body>
+</html>

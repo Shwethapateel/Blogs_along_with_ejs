@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <section>
+            <li><a href="/app/v1/blogs/dashboard" class="navbar">Welcome_Logo_DashBoard</a></li>
+            <ul>
+                <li><a href="/app/v1/users/logout" class="navbar">Logout</a></li>
+            </ul>
+        </section>
+    </nav>
+    <main>
+        <div class="single-blog">
+            <h2 class="blog-title"><%= blog.title%></h2>
+            <p><%= blog.snippet%></p>
+            <p><%= blog.description%></p>
+            <p>By - <%= blog.author.name%></p>
+        </div>
+        <div class="ratings">
+            <span>Ratings for this blog</span>
+            <% ratings.forEach((doc)=>{%>
+                <p>Rating:<%= doc.ratings%></p>
+                <span>By: <%= doc.user.name%></span>
+            <%}) %>
+        </div>
+
+        <div class="form_ratings">
+            <h2>Rate this blog</h2>
+            <form action="/app/v1/blogs/ratings/<%= blog._id%>" method="post">
+                <input type="radio" name="ratings" id="" value="1">1</input>
+                <input type="radio" name="ratings" id="" value="2">2</input>
+                <input type="radio" name="ratings" id="" value="3">3</input>
+                <input type="radio" name="ratings" id="" value="4">4</input>
+                <input type="radio" name="ratings" id="" value="5">5</input>
+                <button type="submit">Submit ratings</button>
+            </form>
+        </div>
+    </main>    
+</body>
+</html>
