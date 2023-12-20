@@ -14,7 +14,7 @@ const getAuthorLogin = (req,res) =>{
 
 const authorLogout = (req, res) => {
   res.clearCookie("jwt");
-  res.redirect("/app/v1/author/login");
+  res.redirect("/app/v1/author/login")
 }
 
 module.exports = { authorLogin, authorSignup, getAuthorSignUp, getAuthorLogin, authorLogout }
