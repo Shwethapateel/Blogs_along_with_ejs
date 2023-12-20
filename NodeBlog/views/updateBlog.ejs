@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <section>
+        <li><a href="/app/v1/blogs/dashboard" class="navbar">Welcome_Logo_dashboard</a></li>
+        <ul>
+          <li><a href="/app/v1/author/logout" class="navbar">Logout</a></li>
+        </ul>
+      </section>
+    </nav>
+    <main>
+      <div class="form_container">    
+      <h1>Update Blog</h1>
+        <form
+          action="/app/v1/blogs/author/<%=blog._id%>?_method=PUT"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="input_row">
+            <label for="title" class="input_label">Title</label>
+            <input
+              type="text"
+              class="input_control"
+              name="title"
+              id="title"
+              value="<%= blog.title%>"
+            />
+          </div>
+          <div class="input_row">
+            <label for="snippet" class="input_label">Snippet</label>
+            <input
+              type="text"
+              class="input_control"
+              name="snippet"
+              id="snippet"
+              value="<%= blog.snippet%>"
+            />
+          </div>
+          <div class="input_row">
+            <label for="description" class="input_label">Description</label>
+            <textarea name="description" id="description">
+            <%= blog.description%></textarea
+            >
+          </div>
+          <div class="image">
+            <% let pathForImage=blog.image[0].path.slice(6)%>
+            <img
+              src="<%= pathForImage%>"
+              alt="<%= blog.title%>"
+              height="100px"
+              width="100px"
+            />
+          </div>
+          <div class="input_row">
+            <label for="image" class="input_label">Image</label>
+            <% let fieldname=blog.image[0].originalname%>
+            <input
+              type="file"
+              class="input_control"
+              name="image"
+              id="image"
+              value="<%=fieldname %>"
+            />
+          </div>
+          <div class="btn_container">
+            <button type="submit">Update</button>
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+        
+        <form
+          action="/app/v1/blogs/author/<%=blog._id%>?_method=DELETE"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="btn-collection">
+            <button type="submit">Delete</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

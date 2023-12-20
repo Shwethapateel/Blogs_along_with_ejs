@@ -1,5 +1,6 @@
 const express = require("express")
 const authRoutes = require("./routers/userRouters.js")
+const methodOverRide = require("method-override")
 const adminRoutes = require("./routers/adminRoutes.js")
 const authorRoutes = require("./routers/authorRouter.js")
 const cookiesSession = require("cookie-session")
@@ -25,6 +26,7 @@ app.use((req,res,next) =>{
   next()
 })
 app.use(express.json())
+app.use(methodOverRide("_method"))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static("public"))
 
